@@ -1,23 +1,3 @@
 fun main() {
-   val serviceNotes = ServiceNotes()
-    val serviceComments = ServiceComments()
-    val note1 = Notes("1","",1, 1, "", "",1, 1, "", 1)
-    val note2 = Notes("2","",1, 1, "", "",2, 1, "", 1)
-    val note3 = Notes("3","",1, 1, "", "",3, 1, "", 1)
-    serviceNotes.add(note1)
-    serviceNotes.add(note2)
-    serviceNotes.add(note3)
-//    var result = serviceNotes.get()
-//    println(result)
-//    serviceNotes.delete(1)
-//    serviceNotes.delete(2)
-//    //serviceNotes.edit(note1)
-//    result = serviceNotes.get()
-//    println(result)
-  println(serviceNotes.getById(1))
-    val comment1 = Comments("",1,2,false)
-//    serviceComments.delete(2)
-//    serviceComments.add(comment1)
-//    println(serviceComments.get())
 
 }

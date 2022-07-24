@@ -75,6 +75,7 @@ class ServiceCommentsTest {
 
         assertTrue(result)
     }
+
     @Test(expected = CommentNotFoundException::class)
     fun edit_NotExistComment() {
         val comment1 = Comments("",1,1,false)

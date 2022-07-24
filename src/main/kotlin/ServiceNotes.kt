@@ -48,17 +48,12 @@ class ServiceNotes: ServiceInterface<Notes> {
     }
 
     fun getById(id : Int) : Notes{
-        var indexOf = 0
-        var result = false
-        for ((index, value) in notesArray.withIndex()) {
-            if (id == value.noteId) {
-                result = true
-                indexOf = notesArray.indexOf(value)
-            } else {
-                throw NoteNotFoundException()
-            }
+        val listByID = mutableListOf<Notes>()
+        for (notes in notesArray) {
+            if (id == notes.noteId)
+                listByID.add(notes)
         }
-        return notesArray[indexOf]
+        return if (listByID.isNotEmpty()) listByID.last() else throw NoteNotFoundException()
     }
 
 }

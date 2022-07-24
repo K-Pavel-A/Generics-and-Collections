@@ -9,17 +9,15 @@ class ServiceComments : ServiceInterface<Comments>{
         return noteComments.last().commentId
     }
 
-    override fun delete(id:Int): Boolean {
+    override fun delete(id: Int): Boolean {
         var result = false
-        var indexOf = 0
         for ((index, value) in noteComments.withIndex()) {
             if (id == value.commentId && !value.deleted) {
+                noteComments[index] = value.copy(deleted = true)
                 result = true
-            }
+                break
+            } else throw CommentNotFoundException()
         }
-        if (result) {
-            noteComments[indexOf].deleted = true
-        } else throw CommentNotFoundException()
         return result
     }
 
@@ -35,12 +33,6 @@ class ServiceComments : ServiceInterface<Comments>{
         }
         return result
 
-//        return if (noteComments.contains(element) && !element.deleted) {
-//            val editComments = element.copy(commentId = element.commentId)
-//            noteComments.set(element.commentId,editComments)
-//            true
-//        } else
-//            false
     }
 
     override fun get(): List<Comments> {
@@ -55,19 +47,15 @@ class ServiceComments : ServiceInterface<Comments>{
         } else throw CommentNotFoundException()
     }
 
-
-    fun restoreComment(id:Int):Boolean {
+    fun restoreComment(id: Int): Boolean {
         var result = false
         for ((index, value) in noteComments.withIndex()) {
             if (id == value.commentId && value.deleted) {
+                noteComments[index] = value.copy(deleted = false)
                 result = true
-            } else {
-                throw CommentNotFoundException()
-            }
+                break
+            } else throw CommentNotFoundException()
         }
         return result
-
-
-
     }
 }

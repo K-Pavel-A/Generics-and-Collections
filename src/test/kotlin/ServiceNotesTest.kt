@@ -100,7 +100,6 @@ class ServiceNotesTest {
     fun getById_ExistNote() {
         val note1 = Notes("1","",1, 1, "", "",1, 1, "", 1)
         val note2 = Notes("2","",1, 1, "", "",2, 1, "", 1)
-        val note3 = Notes("3","",1, 1, "", "",6, 1, "", 1)
 
         serviceTest.add(note1)
         serviceTest.add(note2)
@@ -115,15 +114,11 @@ class ServiceNotesTest {
     fun getById_NotExistNote() {
         val note1 = Notes("1","",1, 1, "", "",1, 1, "", 1)
         val note2 = Notes("2","",1, 1, "", "",2, 1, "", 1)
-        val note3 = Notes("3","",1, 1, "", "",6, 1, "", 1)
 
         serviceTest.add(note1)
         serviceTest.add(note2)
 
         serviceTest.getById(5)
-
-
     }
-
 
 }
